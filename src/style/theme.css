@@ -1,0 +1,7 @@
+:root{
+    --text-normal-color:rgba(31, 41, 55, var(--un-text-opacity));
+    --btn-color:#ffd04b; 
+    --btn-border-color:#ffd04b;
+    --btn-text-color:#000;
+}
+

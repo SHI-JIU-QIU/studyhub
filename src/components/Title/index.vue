@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="inline"><span class="font-700">StudyHub</span></div>
+        <div class="title">StudyHub</div>
     </div>
 </template>
 
@@ -10,5 +10,9 @@
 </script>
 
 <style scoped>
+.title{
+    font-weight: 700;
 
+
+}
 </style>

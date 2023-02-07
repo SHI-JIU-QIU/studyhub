@@ -38,18 +38,5 @@ const componentLeave = (keyword?: string) => {
 </script>
 
 <style scoped>
-:deep() .el-input-group__append {
-    color: #fff;
-    background-color: #ffc524;
-    box-shadow: 0 0 0 0;
-}
 
-:deep() .el-input-group__prepend {
-    background-color: #fff;
-
-}
-
-:deep() .el-input__wrapper {
-    border-radius: 20px;
-}
 </style>

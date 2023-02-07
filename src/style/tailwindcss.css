@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+@layer base{
+    /* --color-base:theme(colors.yellow); */
+}
+
+@layer components{
+
+}
+
+@layer utilities{
+
+    
+}

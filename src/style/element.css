@@ -1,0 +1,5 @@
+.el-button{
+    background-color: var(--btn-color) !important;
+    border-color: var(--btn-border-color) !important;
+    color: var(--btn-text-color)!important;
+}

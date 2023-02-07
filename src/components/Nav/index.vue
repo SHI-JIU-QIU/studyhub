@@ -1,17 +1,16 @@
 <template>
-    <div class="h-full">
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false"
-            @select="handleSelect" background-color="#fff" text-color="#000" active-text-color="#ffd04b">
+    <div class="nav">
+        <el-menu :default-active="activeIndex" class="menu" mode="horizontal" :ellipsis="false" @select="handleSelect"
+            text-color="#000" active-text-color="#ffd04b">
             <el-menu-item index="1">
-                <div class="hvr-icon-bob w-full h-full flex  items-center justify-center">
+                <div class="hvr-icon-bob ">
                     <el-icon class="hvr-icon" color="black " :size=24>
                         <House />
                     </el-icon>
-                 
                 </div>
             </el-menu-item>
             <el-menu-item index="2">
-                <div class="hvr-icon-bob w-full h-full flex  items-center justify-center">
+                <div class="hvr-icon-bob ">
                     <el-icon class="hvr-icon" color="black" :size=24>
                         <HelpFilled />
                     </el-icon>
@@ -19,23 +18,23 @@
                 </div>
             </el-menu-item>
             <el-menu-item index="3">
-                <div class="hvr-icon-bob w-full h-full flex  items-center justify-center">
+                <div class="hvr-icon-bob ">
                     <el-icon class="hvr-icon" color="black" :size=24>
                         <Star />
                     </el-icon>
-                   
+
                 </div>
             </el-menu-item>
             <el-menu-item index="4">
-                <div class="hvr-icon-bob w-full h-full flex  items-center justify-center">
+                <div class="hvr-icon-bob ">
                     <el-icon class="hvr-icon" color="black" :size=24>
                         <ChatDotRound />
                     </el-icon>
-                   
+
                 </div>
             </el-menu-item>
             <el-menu-item index="5">
-                <div class="hvr-icon-bob w-full h-full flex  items-center justify-center">
+                <div class="hvr-icon-bob ">
                     <el-icon class="hvr-icon" color="black" :size=24>
                         <Goods />
                     </el-icon>
@@ -47,8 +46,8 @@
 </template>
 
 <script setup lang='ts'>
-import { onMounted, ref, shallowRef } from 'vue';
-import {House,HelpFilled,Star,ChatDotRound,Goods} from '@element-plus/icons-vue'
+import { onMounted, ref, shallowRef } from 'vue'
+import { House, HelpFilled, Star, ChatDotRound, Goods } from '@element-plus/icons-vue'
 
 
 const activeIndex = ref('1')
@@ -58,56 +57,54 @@ const handleSelect = (key: string, keyPath: string[]) => {
 }
 </script>
 
-<style scoped>
-:deep() .el-menu-demo {
+<style scoped lang="less">
+.nav {
     height: 100%;
-    --el-menu-hover-bg-color: rgb(255, 255, 255) !important;
-    border: 0;
+
+    .menu {
+        height: 100%;
+        border: 0;
+        background-color: transparent;
+
+        .el-menu-item {
+            width: 100px;
+
+            &:hover {
+                background-color: transparent !important;
+            }
+        }
+    }
+
+    .is-active {
+        background-color: transparent !important;
+    }
 }
 
-.el-menu-item {
-    line-height: 1.5;
-    width: 100px;
-}
 
-.el-icon {
-    margin: 0;
-}
 
-.el-menu-item:hover {
-    background-color: #fff !important;
-}
 
-.hvr-icon-bob,
-.hvr-icon-forward {
-    display: flex;
-}
 
-.hvr-sweep-to-right::before {
-    background-color: rgb(231, 231, 231);
-    border-radius: 0.5rem;
-}
+// .el-icon {
+//     margin: 0;
+// }
 
-.hvr-sweep-to-right:hover,
-.hvr-sweep-to-right:focus,
-.hvr-sweep-to-right:active {
-    color: #000;
-}
 
-:deep() .el-input-group__append {
-    color: #fff;
-    background-color: #ffc524;
-    box-shadow: 0 0 0 0;
-}
 
-:deep() .el-input-group__prepend {
-    background-color: #fff;
+// .hvr-icon-bob,
+// .hvr-icon-forward {
+//     display: flex;
+// }
 
-}
+// .hvr-sweep-to-right::before {
+//     background-color: rgb(231, 231, 231);
+//     border-radius: 0.5rem;
+// }
 
-:deep() .el-input__wrapper {
-    border-radius: 20px;
-}
+// .hvr-sweep-to-right:hover,
+// .hvr-sweep-to-right:focus,
+// .hvr-sweep-to-right:active {
+//     color: #000;
+// }
 
 
 </style>

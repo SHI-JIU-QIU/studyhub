@@ -1,15 +1,16 @@
 <template>
-    <div>
-        <Suspense>
-            <template #default>
-                <component :is="layoutComponents[layout]"></component>
+    <div class="layout">
+        <Header></Header>
+        <div class="bgimage">
+            <div class="mask">HELLO WORLD</div>
+        </div>
+        <Main>
+            <template #left>
+                <Aside></Aside>
             </template>
 
-            <template #fallback>
-                <div>.....加载中.....</div>
-            </template>
 
-        </Suspense>
+        </Main>
     </div>
 </template>
 
@@ -17,41 +18,39 @@
 import { throttle } from '@/utils/throttle';
 import { defineAsyncComponent, onMounted, ref } from 'vue';
 import type { layoutType } from './interfaces'
+import Header from './components/header/index.vue'
+import Main from './components/main/index.vue'
+import Aside from '@/components/Aside/index.vue'
 
 
-const layoutComponents = {
-    small: defineAsyncComponent(() => import('./LayoutSmall/index.vue')),
-    medium: defineAsyncComponent(() => import('./LayoutMedium/index.vue')),
-    large: defineAsyncComponent(() => import('./LayoutLarge/index.vue'))
-}
 
-let layout = ref<keyof layoutType>('large')
-
-onMounted(() => {
-    layoutSet()
-})
-
-function layoutSet() {
-    const clientWidth = document.body.clientWidth
-
-    if (clientWidth < 768) {
-        layout.value = 'small'
-    } else if (clientWidth < 976) {
-        layout.value = 'medium'
-    }
-    else {
-        layout.value = 'large'
-    }
-
-}
-
-window.onresize = throttle(layoutSet, 200)
 
 
 
 
 </script>
 
-<style scoped>
+<style scoped lang="less">
+.layout {
+    overflow: hidden;
+    .bgimage {
+        width: 100%;
+        height: 200px;
+        background: url(@/assets/images/bg.jpg) no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        margin-bottom: 20px;
 
+        .mask {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: 700;
+            color: aliceblue;
+            line-height: 240px;
+            text-align: center;
+            font-size: 40px;
+        }
+    }
+}
 </style>
