@@ -16,11 +16,8 @@
 <style scoped lang="less">
 .main {
     padding: 0px 100px;
-    display: grid;
+   
     
-
-
-
 
 }
 </style>

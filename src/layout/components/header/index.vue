@@ -1,5 +1,5 @@
 <template>
-    <div class="fix">
+    <div ref="headerRef" class="fix">
         <div class="header">
             <el-icon size="24" class="menu">
                 <MoreFilled />
@@ -14,12 +14,33 @@
 </template>
 
 <script setup lang='ts'>
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import Title from '@/components/Title/index.vue'
 import Nav from '@/components/Nav/index.vue'
 import Search from '@/components/Search/index.vue'
 import Avatar from '@/components/Avatar/index.vue'
 import { MoreFilled } from '@element-plus/icons-vue'
+import { usePageOffset } from '@/utils/usePageOffset'
+
+
+
+//滚动时导航栏颜色变化
+const headerRef = ref<HTMLElement>()
+function headerColorChange(){
+    if(window.pageYOffset<=200){
+        headerRef.value!.style.backgroundColor="transparent"
+        return
+    }
+    else{
+        headerRef.value!.style.backgroundColor="white"
+    }
+}
+usePageOffset(headerColorChange)
+
+
+
+
+
 
 
 
@@ -29,6 +50,7 @@ import { MoreFilled } from '@element-plus/icons-vue'
 .fix {
     position: fixed;
     width: 100%;
+    z-index: 999;
 
     .header {
         box-sizing: border-box;

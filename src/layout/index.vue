@@ -4,13 +4,11 @@
         <div class="bgimage">
             <div class="mask">HELLO WORLD</div>
         </div>
-        <Main>
-            <template #left>
-                <Aside></Aside>
-            </template>
 
+        <router-view></router-view>
 
-        </Main>
+        <SideContainer></SideContainer>
+
     </div>
 </template>
 
@@ -19,10 +17,9 @@ import { throttle } from '@/utils/throttle';
 import { defineAsyncComponent, onMounted, ref } from 'vue';
 import type { layoutType } from './interfaces'
 import Header from './components/header/index.vue'
-import Main from './components/main/index.vue'
-import Aside from '@/components/Aside/index.vue'
 
 
+import SideContainer from '@/components/SideContainer/index.vue'
 
 
 
@@ -33,6 +30,8 @@ import Aside from '@/components/Aside/index.vue'
 <style scoped lang="less">
 .layout {
     overflow: hidden;
+    position: relative;
+
     .bgimage {
         width: 100%;
         height: 200px;
@@ -52,5 +51,6 @@ import Aside from '@/components/Aside/index.vue'
             font-size: 40px;
         }
     }
+
 }
 </style>
